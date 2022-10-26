@@ -8,7 +8,6 @@ import (
 func main() {
 	
 	fileNameArg := os.Args[1]
-	fmt.Println(fileNameArg)
 
 	dat, err := os.ReadFile(fileNameArg)
 	check(err)
