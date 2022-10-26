@@ -6,8 +6,11 @@ import (
 )
 
 func main() {
-	const fileName string = "./test.txt"
-	dat, err := os.ReadFile(fileName)
+	
+	fileNameArg := os.Args[1]
+	fmt.Println(fileNameArg)
+
+	dat, err := os.ReadFile(fileNameArg)
 	check(err)
 	fmt.Print(string(dat))
 }
