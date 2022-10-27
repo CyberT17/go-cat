@@ -3,15 +3,23 @@ package main
 import (
 	"fmt"
 	"os"
+	"bufio"
 )
 
 func main() {
-	
-	fileNameArg := os.Args[1]
 
-	dat, err := os.ReadFile(fileNameArg)
+	if len(os.Args) < 2 {
+		return
+	}
+
+	fileNameArg := os.Args[1]
+	file, err := os.Open(fileNameArg)
 	check(err)
-	fmt.Print(string(dat))
+
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
 }
 
 func check(e error) {
